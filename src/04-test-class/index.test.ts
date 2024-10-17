@@ -24,13 +24,13 @@ describe('BankAccount', () => {
   });
 
   test('should throw InsufficientFundsError error when withdrawing more than balance', () => {
-    expect(() => sender.withdraw(2 * INITIAL_BALANCE)).toThrow(
+    expect(() => sender.withdraw(INITIAL_BALANCE + 1)).toThrow(
       InsufficientFundsError,
     );
   });
 
   test('should throw error when transferring more than balance', () => {
-    expect(() => sender.transfer(2 * INITIAL_BALANCE, recipient)).toThrow(
+    expect(() => sender.transfer(INITIAL_BALANCE + 1, recipient)).toThrow(
       InsufficientFundsError,
     );
   });
